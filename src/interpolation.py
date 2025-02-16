@@ -13,3 +13,11 @@ def nevilles_method(x, y, xS):
     return y[0]
 
 
+#TODO: lagrange_polynomial()
+#TODO: divided_differences()
+#TODO: hermites_method()
+#TODO: nevilles_method_steps()
+#TODO: lagrange_polynomial_steps()
+#TODO: divided_differences_steps()
+#TODO: hermites_method_steps()
+
