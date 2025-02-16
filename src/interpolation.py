@@ -27,7 +27,6 @@ def nevilles_method_steps(x, y, xS): #uses more space/might be slower?
     for i in range(columns):
         k = columns - i
         for j in range(k):
-            print(f'{i}  {j}  {k}  {result_pointer}  {len(result)}  {result_pointer - k + 1}')
             result.append((result[result_pointer - k + 1] * (xS - x[j]) - result[result_pointer - k] * (xS - x[j+diff])) / (x[j+diff] - x[j]))
             result_pointer += 1
         diff += 1
