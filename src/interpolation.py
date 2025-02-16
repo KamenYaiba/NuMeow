@@ -13,9 +13,7 @@ def nevilles_method(x, y, xS):
     return y[0]
 
 
-#NOT TESTED
-#TODO: write testcases
-def nevilles_method_steps(x, y, xS): #uses more space/might be slower?
+def nevilles_method_steps(x, y, xS):  # uses more space/might be slower?
     if len(x) != len(y):
         return False
 
