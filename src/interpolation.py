@@ -1,3 +1,5 @@
+
+#TODO: raise an exception instead of returning False
 def nevilles_method(x, y, xS):
     if len(x) != len(y):
         return False
@@ -13,6 +15,7 @@ def nevilles_method(x, y, xS):
     return y[0]
 
 
+#TODO: raise an exception instead of returning False
 def nevilles_method_steps(x, y, xS):  # uses more space/might be slower?
     if len(x) != len(y):
         return False
