@@ -32,6 +32,17 @@ def nevilles_method_steps(x, y, xS):  # uses more space/might be slower?
     return result
 
 
+def lagrange_polynomial_steps(x, y):
+    if len(x) != len(y):
+        return False
+
+    degree = len(x) - 1
+
+
+
+
+
+
 #TODO: lagrange_polynomial() [[[mio is on it]]]
 #TODO: divided_differences()
 #TODO: hermites_method()
