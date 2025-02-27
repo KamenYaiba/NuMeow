@@ -9,9 +9,9 @@ class TestInterpolation(unittest.TestCase):
         test = nevilles_method([8.1, 8.3, 8.6], [16.94410, 17.56492, 18.50515], 8.4)
         self.assertTrue(math.isclose(test, 17.87713, rel_tol=precision))
         test = nevilles_method([8.1, 8.3], [16.94410, 17.56492, 18.50515], 8.4)
-        self.assertFalse(test)
+        self.assertTrue(test is False)
         test = nevilles_method([8.1, 8.3, 8.6], [], 8.4)
-        self.assertFalse(test)
+        self.assertTrue(test is False)
         test = nevilles_method([0, 0.25, 0.5, 0.75], [1, 1.64872, 2.71828, 4.48169], 0.43)
         self.assertTrue(math.isclose(test, 2.36060473408, rel_tol=precision))
 
@@ -26,9 +26,8 @@ class TestInterpolation(unittest.TestCase):
         for e, a in zip(expected, actual):
             self.assertTrue(math.isclose(e, a, rel_tol=precision))
 
-        self.assertFalse(nevilles_method_steps([0, 0.25, 0.5, 0.75], [1, 1.64872, 2.71828], 0.43))
-        self.assertFalse(nevilles_method_steps([], [1, 1.64872, 2.71828, 4.48169], 0.43))
-        self.assertTrue(0 is False)
+        self.assertTrue(nevilles_method_steps([0, 0.25, 0.5, 0.75], [1, 1.64872, 2.71828], 0.43) is False)
+        self.assertTrue(nevilles_method_steps([], [1, 1.64872, 2.71828, 4.48169], 0.43) is False)
 
 
 
