@@ -1,5 +1,7 @@
 import itertools
 import math
+from sympy import sympify, lambdify
+from config import x
 
 
 def elementary_symmetric_sum(input_list):
@@ -30,4 +32,14 @@ def sum_product_length_n_combinations(array, n):
         res_sum += math.prod(c)
 
     return res_sum
+
+
+# use with try
+def parse_func(func_str):
+    func = sympify(func_str)
+    return lambdify(x, func)
+
+
+
+
 
