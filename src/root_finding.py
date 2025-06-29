@@ -4,17 +4,14 @@ from helping_functions import parse_func
 
 #TODO: newtons_method()
 #TODO: secant_method()
-#TODO: fixed_point_iteration()
-#TODO: bisection_method()
 #TODO: newtons_method_steps()
 #TODO: secant_method_steps()
 #TODO: fixed_point_iteration_steps()
-#TODO: bisection_method_steps()
 
 
 def bisection_method(func, a, b, pr = precision, iterations = 10000):
-    if iterations > 10000:
-        iteratioin = 10000
+    if iterations > 10000 or iterations < 0:
+        iterations = 10000
 
     if func(a) * func(b) > 0:
         return False
@@ -48,8 +45,8 @@ def bisection_method(func, a, b, pr = precision, iterations = 10000):
 
 
 def bisection_method_steps(func, a, b, pr = precision, iterations = 10000):
-    if iterations > 10000 or iteratioins < 0:
-        iteratioins = 10000
+    if iterations > 10000 or iterations < 0:
+        iterations = 10000
 
     if func(a) * func(b) > 0:
         return False
@@ -91,9 +88,23 @@ def bisection_method_steps(func, a, b, pr = precision, iterations = 10000):
 
 
 def fixed_point_iteration(func, point, pr = precision, iterations = 10000):
-    if iterations > 10000 or iteratioins < 0:
-        iteratioins = 10000
-    int i = 0
+    if iterations > 10000 or iterations < 0:
+        iterations = 10000
+
+    i = 0
+    points_history = []
+    while i < iterations and abs(func(point) - 0) > pr:
+        points_history.append(point)
+        if i > 9:
+            points_history.pop(0)
+            avg = sum(points_history) / 10
+            if min(avg, point) / max(avg, point) < 0.25:
+                return False
+
+        point = func(point)
+        i += 1
+
+    return point
 
 
 
@@ -101,7 +112,8 @@ def fixed_point_iteration(func, point, pr = precision, iterations = 10000):
 
 
 
-func = parse_func("x^4 - 2*x^3 - 4*x^2 + 4*x + 4")
-ans, ps = bisection_method_steps(func, -2, -1)
-print(ps)
-print(len(ps))
+
+
+
+
+ 
