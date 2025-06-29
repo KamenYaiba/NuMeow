@@ -1,6 +1,6 @@
 import itertools
 import math
-from sympy import sympify, lambdify
+from sympy import sympify, lambdify, E
 from config import x
 
 
@@ -36,7 +36,7 @@ def sum_product_length_n_combinations(array, n):
 
 # use with try
 def parse_func(func_str):
-    func = sympify(func_str)
+    func = sympify(func_str, locals={'e': E})
     return lambdify(x, func)
 
 
