@@ -109,7 +109,26 @@ def fixed_point_iteration(func, point, pr = precision, iterations = 10000):
 
 
 
+def fixed_point_iteration_steps(func, point, pr = precision, iterations = 10000):
+    if iterations > 10000 or iterations < 0:
+        iterations = 10000
 
+    i = 0
+    points_history = []
+    steps = []
+    while i < iterations and abs(func(point) - 0) > pr:
+        points_history.append(point)
+        steps.append(point)
+        if i > 9:
+            points_history.pop(0)
+            avg = sum(points_history) / 10
+            if min(avg, point) / max(avg, point) < 0.25:
+                return False
+
+        point = func(point)
+        i += 1
+
+    return point, steps
 
 
 
