@@ -83,17 +83,13 @@ def bisection_method_steps(func, a, b, pr = precision, iterations = 10000):
         
 
 
-
-
-
-
 def fixed_point_iteration(func, point, pr = precision, iterations = 10000):
     if iterations > 10000 or iterations < 0:
         iterations = 10000
 
     i = 0
     points_history = []
-    while i < iterations and abs(func(point) - 0) > pr:
+    while i < iterations and abs(func(point) - point) > pr:
         points_history.append(point)
         if i > 9:
             points_history.pop(0)
@@ -116,7 +112,7 @@ def fixed_point_iteration_steps(func, point, pr = precision, iterations = 10000)
     i = 0
     points_history = []
     steps = []
-    while i < iterations and abs(func(point) - 0) > pr:
+    while i < iterations and abs(func(point) - point) > pr:
         points_history.append(point)
         steps.append(point)
         if i > 9:
