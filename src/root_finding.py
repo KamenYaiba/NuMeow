@@ -48,8 +48,8 @@ def bisection_method(func, a, b, pr = precision, iterations = 10000):
 
 
 def bisection_method_steps(func, a, b, pr = precision, iterations = 10000):
-    if iterations > 10000:
-        iteratioin = 10000
+    if iterations > 10000 or iteratioins < 0:
+        iteratioins = 10000
 
     if func(a) * func(b) > 0:
         return False
@@ -84,6 +84,21 @@ def bisection_method_steps(func, a, b, pr = precision, iterations = 10000):
 
     return mp, points
         
+
+
+
+
+
+
+def fixed_point_iteration(func, point, pr = precision, iterations = 10000):
+    if iterations > 10000 or iteratioins < 0:
+        iteratioins = 10000
+    int i = 0
+
+
+
+
+
 
 
 func = parse_func("x^4 - 2*x^3 - 4*x^2 + 4*x + 4")
